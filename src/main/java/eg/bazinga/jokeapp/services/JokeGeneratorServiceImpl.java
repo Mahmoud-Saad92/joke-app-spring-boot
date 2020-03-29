@@ -1,15 +1,17 @@
 package eg.bazinga.jokeapp.services;
 
 import guru.springframework.norris.chuck.ChuckNorrisQuotes;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class JokeGeneratorServiceImpl implements JokeGeneratorService {
 
-    private final ChuckNorrisQuotes chuckNorrisQuotes;
+    private ChuckNorrisQuotes chuckNorrisQuotes;
 
-    public JokeGeneratorServiceImpl() {
-        this.chuckNorrisQuotes = new ChuckNorrisQuotes();
+    @Autowired
+    public JokeGeneratorServiceImpl(ChuckNorrisQuotes chuckNorrisQuotes) {
+        this.chuckNorrisQuotes = chuckNorrisQuotes;
     }
 
     @Override
